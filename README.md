@@ -1,11 +1,17 @@
-# uncomplicated-alert-receiver (UAR)
+<div align = "center">
+  <img alt = "project logo" src = "var/logo.png" width = "128" />
+  <h1>uncomplicated-alert-receiver</h1>
 
-<img alt = "project logo" src = "var/logo.png" align = "right" width = "160px" />
-
-A robust and reliable Prometheus alert receiver intended for heads up displays. It works without internet access, has no external dependencies, no configuration files, no storage needs, and generally has very few things to go wrong - all it does it receives alerts, and displays them in a simple webpage.
+Show Prometheus Alertmanager alerts on heads up displays.
 
 [![Discord](https://img.shields.io/discord/846737624960860180?label=Discord%20Server)](https://discord.gg/jhYWWpNJ3v)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jamesread/uncomplicated-alert-receiver)](https://goreportcard.com/report/github.com/jamesread/uncomplicated-alert-receiver)
+
+</div>
+
+# uncomplicated-alert-receiver (UAR)
+
+A robust and reliable Prometheus alert receiver intended for heads up displays. It works without internet access, has no external dependencies, no configuration files, no storage needs, and generally has very few things to go wrong - all it does it receives alerts, and displays them in a simple webpage.
 
 <p align = "center">
 <img src = "var/screenshot1.png" />
