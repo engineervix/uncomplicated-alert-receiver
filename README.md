@@ -15,7 +15,7 @@ A robust and reliable Prometheus alert receiver intended for heads up displays. 
 
 <p align = "center">
 <img src = "var/mockup-laptop-1024-660.png" />
-<img src = "var/mockup-phone-600-1160-dpr1" />
+<img src = "var/mockup-phone-600-1160-dpr1.png" />
 </p>
 
 It is designed to supplement other alert receivers, which typically are used for sending notifications, such as email, slack, pagerduty, etc. It is not a replacement for those services, but a supplement to them.
