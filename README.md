@@ -9,7 +9,7 @@ Show Prometheus Alertmanager alerts on heads up displays.
 
 </div>
 
-# Screenshots
+## Screenshots
 
 A robust and reliable Prometheus alert receiver intended for heads up displays. It works without internet access, has no external dependencies, no configuration files, no storage needs, and generally has very few things to go wrong - all it does it receives alerts, and displays them in a simple webpage.
 
