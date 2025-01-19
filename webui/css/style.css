@@ -122,3 +122,24 @@ footer {
   padding: 1em;
   text-align: center;
 }
+
+@media (max-width: 600px) {
+  header {
+    gap: .5em;
+  }
+  header img {
+    margin: 0.5em;
+  }
+
+  progress {
+    width: 2em;
+  }
+
+  main {
+    margin: 0;
+  }
+
+  div.alert {
+    border-radius: 0;
+  }
+}
