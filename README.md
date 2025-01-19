@@ -20,7 +20,7 @@ A robust and reliable Prometheus alert receiver intended for heads up displays. 
 
 It is designed to supplement other alert receivers, which typically are used for sending notifications, such as email, slack, pagerduty, etc. It is not a replacement for those services, but a supplement to them.
 
-### Why, what problem does this solve?
+## Why, what problem does this solve?
 
 For years, I tried to create better and better Grafana dashboards on my heads up displays, cycling dashboards, showing pretty pictures and graphs. I agonized over making dashboards that displayed the right information at the right time, but something was missing. The problem was the noise, I was being shown all this information constantly as pretty graphs and visualizations, but Grafana has no idea if something is actually wrong - it's fundamentally just a pretty way to display data. What I was missing, was alerts from Prometheus when something was wrong, and then I would use Grafana to explore the information and try to figure out why. Now I have alerts on my heads up displays, and Grafana's role is on my desktop browser to explore the data, not on my heads up displays.
 
