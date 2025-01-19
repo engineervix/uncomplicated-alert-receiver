@@ -1,6 +1,6 @@
 <div align = "center">
   <img alt = "project logo" src = "var/logo.png" width = "128" />
-  <h1>uncomplicated-alert-receiver</h1>
+  <h1>uncomplicated-alert-receiver (UAR)</h1>
 
 Show Prometheus Alertmanager alerts on heads up displays.
 
@@ -9,7 +9,7 @@ Show Prometheus Alertmanager alerts on heads up displays.
 
 </div>
 
-# uncomplicated-alert-receiver (UAR)
+# Screenshots
 
 A robust and reliable Prometheus alert receiver intended for heads up displays. It works without internet access, has no external dependencies, no configuration files, no storage needs, and generally has very few things to go wrong - all it does it receives alerts, and displays them in a simple webpage.
 
