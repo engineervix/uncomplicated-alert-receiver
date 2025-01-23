@@ -4,6 +4,7 @@
 
 Show Prometheus Alertmanager alerts on heads up displays.
 
+[![Maturity](https://img.shields.io/badge/maturity-Production-brightgreen)](#none)
 [![Discord](https://img.shields.io/discord/846737624960860180?label=Discord%20Server)](https://discord.gg/jhYWWpNJ3v)
 [![Go Report Card](https://goreportcard.com/badge/github.com/jamesread/uncomplicated-alert-receiver)](https://goreportcard.com/report/github.com/jamesread/uncomplicated-alert-receiver)
 
