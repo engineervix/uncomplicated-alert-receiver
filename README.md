@@ -1,5 +1,5 @@
 <div align = "center">
-  <img alt = "project logo" src = "var/logo.png" width = "128" />
+  <img alt = "project logo" src = "logo.png" width = "128" />
   <h1>uncomplicated-alert-receiver (UAR)</h1>
 
 Show Prometheus Alertmanager alerts on heads up displays.
