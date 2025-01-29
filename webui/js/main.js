@@ -45,7 +45,7 @@ function fetchAlertList () {
       console.error('Fetch error:', error)
 
       document.getElementById('last-updated').textContent = 'Fetch error'
-      document.getElementById('last-updated').classList.add('critical')
+      document.getElementById('last-updated-container').classList.add('critical')
     })
 }
 
@@ -56,18 +56,18 @@ function renderLastUpdated (res) {
     const formatter = new Intl.RelativeTimeFormat()
 
     document.getElementById('last-updated').textContent = formatter.format(deltaLastUpdated, 'seconds')
-    document.getElementById('last-updated').title = lastUpdatedDate.toLocaleString()
+    document.getElementById('last-updated').title = 'Last payload from AlertManager: ' + lastUpdatedDate.toLocaleString()
 
     if (deltaLastUpdated < -100) {
-      document.getElementById('last-updated').classList.add('critical')
+      document.getElementById('last-updated-container').classList.add('critical')
     } else if (deltaLastUpdated > 0) {
-      document.getElementById('last-updated').classList.add('info')
+      document.getElementById('last-updated-container').classList.add('info')
     } else {
-      document.getElementById('last-updated').classList.remove('critical')
+      document.getElementById('last-updated-container').classList.remove('critical')
     }
   } else if (res.LastUpdated === 0) {
-    document.getElementById('last-updated').textContent = 'Nothing received yet'
-    document.getElementById('last-updated').classList.add('critical')
+    document.getElementById('last-updated').textContent = 'Nothing received from Alertmanager yet'
+    document.getElementById('last-updated-container').classList.add('critical')
   }
 }
 

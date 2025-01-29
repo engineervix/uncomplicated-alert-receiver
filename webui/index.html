@@ -13,10 +13,16 @@
 	<header>
 		<img src = "images/icons/logo.png" alt = "Uncomplicated Alert Receiver Logo">
 		<h1>Uncomplicated Alert Receiver</h1>
-		<progress id = "next-update" value = "0" max = "30" title = "Time until next update"></progress>
-		<span id = "last-updated" class = "critical">
-			Never updated
-		</span>
+		<div>
+			<p>Next page refresh:</p>
+			<p><progress id = "next-update" value = "0" max = "30" title = "Time until next update"></progress></p>
+		</div>
+		<div id = "last-updated-container" class = "critical">
+			<p>Last result:</p>
+			<p id = "last-updated">
+				Never updated
+			</p>
+		</div>
 		<a href = "https://github.com/jamesread/uncomplicated-alert-receiver" target = "_blank" class = "aside">
 			<img src = "images/icons/github.svg" alt = "GitHub Logo">
 		</a>

@@ -41,9 +41,16 @@ div.alert {
   word-wrap: anywhere;
 }
 
+header p {
+  margin: 0;
+}
+
+header div p:first-child {
+  font-size: small;
+}
+
 header .critical {
   background-color: var(--status-critical-bg);
-  padding: 1em;
   color: var(--status-critical-fg);
   font-weight: bold;
 }
