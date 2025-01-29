@@ -10,6 +10,8 @@ Show Prometheus Alertmanager alerts on heads up displays.
 
 </div>
 
+UAR is documented on the [https://jamesread.github.io/uncomplicated-alert-receiver/](UAR Documentation Site).
+
 ## Screenshots
 
 A robust and reliable Prometheus alert receiver intended for heads up displays. It works without internet access, has no external dependencies, no configuration files, no storage needs, and generally has very few things to go wrong - all it does it receives alerts, and displays them in a simple webpage.
@@ -55,6 +57,8 @@ route:
 ```
 
 Of course you are free to set the sending intervals to a duration that fits you.
+
+UAR is documented on the [https://jamesread.github.io/uncomplicated-alert-receiver/](UAR Documentation Site).
 
 ## **This is a No-Nonsense Open Source project;**
 
