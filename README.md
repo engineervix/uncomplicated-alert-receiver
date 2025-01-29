@@ -10,7 +10,7 @@ Show Prometheus Alertmanager alerts on heads up displays.
 
 </div>
 
-UAR is documented on the [https://jamesread.github.io/uncomplicated-alert-receiver/](UAR Documentation Site).
+UAR is documented on the [UAR Documentation Site](https://jamesread.github.io/uncomplicated-alert-receiver/)
 
 ## Screenshots
 
@@ -58,7 +58,7 @@ route:
 
 Of course you are free to set the sending intervals to a duration that fits you.
 
-UAR is documented on the [https://jamesread.github.io/uncomplicated-alert-receiver/](UAR Documentation Site).
+UAR is documented on the [UAR Documentation Site](https://jamesread.github.io/uncomplicated-alert-receiver/)
 
 ## **This is a No-Nonsense Open Source project;**
 
