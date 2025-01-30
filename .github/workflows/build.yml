@@ -5,6 +5,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'go.mod'
+      - 'go.sum'
+      - 'Makefile'
+      - 'cmd/**'
+      - 'pkg/**'
+      - 'internal/**'
+      - '.github/workflows/build.yml'
 
 jobs:
   build:
