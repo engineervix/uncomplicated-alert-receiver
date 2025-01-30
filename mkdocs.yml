@@ -59,3 +59,4 @@ extra:
 nav:
   - Welcome: index.md
   - User Guide: userguide.md
+  - Configuration: configuration.md
