@@ -48,7 +48,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/jamesread/faridoon
+      link: https://github.com/jamesread/uncomplicated-alert-receiver
 
     - icon: fontawesome/brands/mastodon
       link: https://mastodon.social/@jamesread
