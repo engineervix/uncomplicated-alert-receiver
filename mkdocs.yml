@@ -1,9 +1,9 @@
 ---
 site_url: https://jamesread.github.io/uncomplicated-alert-receiver/
-site_name: UAR Docs
+site_name: uncomplicated-alert-receiver Docs
 site_description: Show Prometheus Alertmanager alerts on heads up displays.
 repo_url: https://github.com/jamesread/uncomplicated-alert-receiver
-repo_name: jamesread/UAR
+repo_name: jamesread/uncomplicated-alert-receiver
 edit_uri: edit/main/docs
 strict: true
 
