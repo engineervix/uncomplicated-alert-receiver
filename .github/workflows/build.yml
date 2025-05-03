@@ -65,6 +65,7 @@ jobs:
         with:
           extra_plugins: |
             @semantic-release/commit-analyzer
+            @semantic-release/exec
             @semantic-release/git
 
         env:
