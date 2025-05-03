@@ -9,7 +9,9 @@ EXPOSE 8080
 RUN mkdir /app
 WORKDIR /app
 
-COPY service/uar /app/uar
+# Goreleaser builds to ./uar, not ./service/uar
+COPY uar /app/uar
+
 COPY frontend/dist /app/webui
 
 ENTRYPOINT ["/app/uar"]

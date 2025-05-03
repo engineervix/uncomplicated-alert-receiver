@@ -10,6 +10,8 @@ on:
         default: 'latest'
         type: string
   push:
+    tags:
+      - '*'
     branches:
       - main
 
