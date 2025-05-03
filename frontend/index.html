@@ -3,6 +3,7 @@
 <head>
 	<title>Uncomplicated Alert Receiver</title>
 
+	<link rel="stylesheet" type="text/css" href="css/BrightAndSimpleTheme/style.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="shortcut icon" href="images/icons/logo.png">
 
@@ -11,20 +12,20 @@
 
 <body>
 	<header>
-		<img src = "images/icons/logo.png" alt = "Uncomplicated Alert Receiver Logo">
-		<h1>Uncomplicated Alert Receiver</h1>
+		<img src = "images/icons/logo.png" alt = "Uncomplicated Alert Receiver Logo" class = "logo">
+		<h1 class = "fg1">Uncomplicated Alert Receiver</h1>
 		<div>
-			<p>Next page refresh:</p>
+			<p class = "subtle">Next page refresh:</p>
 			<p><progress id = "next-update" value = "0" max = "30" title = "Time until next update"></progress></p>
 		</div>
-		<div id = "last-updated-container" class = "critical">
-			<p>Last result:</p>
+		<div id = "last-updated-container">
+				<p class = "subtle">Last result:</p>
 			<p id = "last-updated">
 				Never updated
 			</p>
 		</div>
 		<a href = "https://github.com/jamesread/uncomplicated-alert-receiver" target = "_blank" class = "aside">
-			<img src = "images/icons/github.svg" alt = "GitHub Logo">
+			<img src = "images/icons/github.svg" alt = "GitHub Logo" class = "logo">
 		</a>
 	</header>
 
@@ -42,6 +43,12 @@
 	</main>
 
 	<footer>
-		<a href = "https://github.com/jamesread/uncomplicated-alert-receiver">UAR on GitHub</a>
+		<p>
+			<a href = "https://github.com/jamesread/uncomplicated-alert-receiver">UAR on GitHub</a>
+			|
+			<a href = "https://jamesread.github.io/uncomplicated-alert-receiver/">Docs</a>
+			|
+			<span id = "current-version"></span>
+		</p>
 	</footer>
 </body>

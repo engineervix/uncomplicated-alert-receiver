@@ -9,11 +9,30 @@ const severityWeighting = new Map([
 ])
 
 export default function main () {
+  window.baseUrl = window.location.origin;
+
+  if (window.baseUrl.includes("localhost")) {
+	  window.baseUrl = 'http://localhost:8082';
+  }
+
   window.timeUntilNextUpdate = 0
 
   window.intervalTimer = setInterval(updateProgressBar, 1000)
+
+  updateSettings()
 }
 
+function updateSettings () {
+  window.fetch(window.baseUrl + '/settings')
+	.then(response => response.json())
+	.then(res => {
+		document.getElementById('current-version').innerHTML = 'Version: ' + res.Version
+	})
+	.catch(error => {
+		console.error('Fetch error:', error)
+		document.getElementById('current-version').innerHTML = 'Error fetching version'
+	})
+}
 function updateProgressBar () {
   const progressBar = document.getElementById('next-update')
 
@@ -31,7 +50,7 @@ function fetchAlertList () {
   const alertList = document.getElementById('alert-list')
   alertList.innerHTML = ''
 
-  window.fetch('/alert_list')
+  window.fetch(window.baseUrl + '/alert_list')
     .then(response => response.json())
     .then(res => {
       const alerts = res.Alerts
@@ -45,7 +64,7 @@ function fetchAlertList () {
       console.error('Fetch error:', error)
 
       document.getElementById('last-updated').textContent = 'Fetch error'
-      document.getElementById('last-updated-container').classList.add('critical')
+      document.getElementById('last-updated').classList.add('critical')
     })
 }
 
@@ -59,15 +78,15 @@ function renderLastUpdated (res) {
     document.getElementById('last-updated').title = 'Last payload from AlertManager: ' + lastUpdatedDate.toLocaleString()
 
     if (deltaLastUpdated < -100) {
-      document.getElementById('last-updated-container').classList.add('critical')
+      document.getElementById('last-updated').classList.add('critical')
     } else if (deltaLastUpdated > 0) {
-      document.getElementById('last-updated-container').classList.add('info')
+      document.getElementById('last-updated').classList.add('info')
     } else {
-      document.getElementById('last-updated-container').classList.remove('critical')
+      document.getElementById('last-updated').classList.remove('critical')
     }
   } else if (res.LastUpdated === 0) {
     document.getElementById('last-updated').textContent = 'Nothing received from Alertmanager yet'
-    document.getElementById('last-updated-container').classList.add('critical')
+    document.getElementById('last-updated').classList.add('critical')
   }
 }
 

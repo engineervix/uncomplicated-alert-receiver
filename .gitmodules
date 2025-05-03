@@ -1,0 +1,3 @@
+[submodule "webui/css/BrightAndSimpleTheme"]
+	path = frontend/css/BrightAndSimpleTheme
+	url = https://github.com/jamesread/BrightAndSimpleTheme.git

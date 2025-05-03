@@ -9,7 +9,7 @@ EXPOSE 8080
 RUN mkdir /app
 WORKDIR /app
 
-COPY uar /app/uar
-COPY webui /app/webui
+COPY service/uar /app/uar
+COPY frontend/dist/ /app/webui
 
 ENTRYPOINT ["/app/uar"]

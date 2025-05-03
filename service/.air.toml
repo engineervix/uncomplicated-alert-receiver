@@ -5,7 +5,7 @@ tmp_dir = "tmp"
 [build]
   args_bin = []
   bin = "./uar"
-  cmd = "go build -o ./uar cmd/uncomplicated-alert-receiver/main.go"
+  cmd = "make"
   delay = 1
   exclude_dir = ["assets", "tmp", "vendor", "testdata"]
   exclude_file = []

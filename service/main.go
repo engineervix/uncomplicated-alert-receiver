@@ -8,10 +8,11 @@ import (
 	"os"
 	"strings"
 	"time"
+
+	"github.com/jamesread/uncomplicated-alert-receiver/internal/buildinfo"
 )
 
 type Webhook struct {
-	Version string
 	Alerts  []Alert
 }
 
@@ -89,16 +90,16 @@ func buildURLFilter(alert *Alert) string {
 	return v
 }
 
-func getAllAlerts() http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		res := AlertListResponse{
-			LastUpdated: lastUpdated,
-			Alerts: alertMap,
-		}
+func getAllAlerts(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(res)
+	res := AlertListResponse{
+		LastUpdated: lastUpdated,
+		Alerts: alertMap,
 	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(res)
 }
 
 func getListenAddress() string {
@@ -115,12 +116,52 @@ func getListenAddress() string {
 	return addr
 }
 
+type Settings struct {
+	Version string
+}
+
+func getSettings(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
+	ret := Settings{
+		Version: buildinfo.Version,
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(ret);
+}
+
+func findWebuiDir() string {
+	directories := []string{
+		"./frontend",
+		"../frontend/",
+	}
+
+	for _, dir := range directories {
+		if _, err := os.Stat(dir); !os.IsNotExist(err) {
+			return dir
+		}
+	}
+
+	return "webui-not-found/"
+}
+
 func main() {
 	log.Infof("uncomplicated-alert-receiver")
+	log.WithFields(log.Fields{
+		"version": buildinfo.Version,
+		"commit":  buildinfo.Commit,
+		"date":    buildinfo.BuildDate,
+	}).Infof("buildinfo")
 
+	webUiDir := findWebuiDir()
+
+	log.Infof("WebUI dir: %v", webUiDir)
+
+	http.HandleFunc("/settings", getSettings)
 	http.HandleFunc("/alerts", receiveWebhook)
-	http.HandleFunc("/alert_list", getAllAlerts())
-	http.Handle("/", http.FileServer(http.Dir("./webui")))
+	http.HandleFunc("/alert_list", getAllAlerts)
+	http.Handle("/", http.FileServer(http.Dir(webUiDir)))
 
 	log.Fatal(http.ListenAndServe(getListenAddress(), nil))
 }
