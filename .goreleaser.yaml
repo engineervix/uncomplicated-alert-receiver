@@ -21,6 +21,14 @@ builds:
 
 archives:
   - ids: [uncomplicated-alert-receiver]
+    formats:
+      - "tar.gz"
+    wrap_in_directory: true
+    files:
+      - README.md
+      - LICENSE
+      - src: frontend/dist/
+        dst: webui/
 
 dockers:
   - dockerfile: Dockerfile
