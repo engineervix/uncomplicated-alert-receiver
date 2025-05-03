@@ -11,9 +11,13 @@ builds:
     binary: uar
     env: [CGO_ENABLED=0]
     goos: [linux]
-    goarch: [amd64]
+    goarch: [amd64, arm64]
     ldflags:
-      - -s -w -X buildinfo.Version={{.Version}} -X buildinfo.GitCommit={{.Commit}} -X buildinfo.BuildDate={{.Date}}
+      - >
+        -s -w
+        -X 'github.com/jamesread/uncomplicated-alert-receiver/internal/buildinfo.Commit={{.Commit}}'
+        -X 'github.com/jamesread/uncomplicated-alert-receiver/internal/buildinfo.BuildDate={{.Date}}'
+        -X 'github.com/jamesread/uncomplicated-alert-receiver/internal/buildinfo.Version={{.Version}}'
 
 archives:
   - ids: [uncomplicated-alert-receiver]
@@ -33,3 +37,32 @@ changelog:
     exclude:
       - "^docs:"
       - "^test:"
+      - "^build:"
+  groups:
+    - title: 'Security'
+      regexp: '^.*?security(\([[:word:]]+\))??!?:.+$'
+      order: 0
+    - title: 'Features'
+      regexp: '^.*?feat.*?(\([[:word:]]+\))??!?:.+$'
+      order: 1
+    - title: 'Bug fixes'
+      regexp: '^.*?bugfix(\([[:word:]]+\))??!?:.+$'
+      order: 2
+    - title: Others
+      order: 999
+
+release:
+  footer: |
+    ## Container images ([from GitHub](https://github.com/jamesread/uncomplicated-alert-receiver/pkgs/container/uncomplicated-alert-receiver))
+
+    - `docker pull ghcr.io/jamesread/uncomplicated-alert-receiver:{{ .Version }}`
+
+    ## Upgrade warnings, or breaking changes
+
+    - No such issues between the last release and this version.
+
+    ## Useful links
+
+    - [Ask for help and chat with others users in the Discord community](https://discord.gg/jhYWWpNJ3v)
+
+    Thanks for your interest in UAR!
