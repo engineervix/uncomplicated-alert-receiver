@@ -23,13 +23,40 @@ archives:
   - ids: [uncomplicated-alert-receiver]
 
 dockers:
-  - id: uncomplicated-alert-receiver
-    dockerfile: Dockerfile
+  - dockerfile: Dockerfile
     image_templates:
-      - ghcr.io/jamesread/uncomplicated-alert-receiver
+      - ghcr.io/jamesread/uncomplicated-alert-receiver:{{ .Tag }}-arm64
+    goarch: arm64
+    build_flag_templates:
+      - "--platform=linux/arm64"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.version={{.Tag}}"
     extra_files:
       - README.md
       - frontend/dist
+
+  - dockerfile: Dockerfile
+    image_templates:
+      - ghcr.io/jamesread/uncomplicated-alert-receiver:{{ .Tag }}-amd64
+    goarch: amd64
+    build_flag_templates:
+      - "--platform=linux/amd64"
+      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+      - "--label=org.opencontainers.image.version={{.Tag}}"
+    extra_files:
+      - README.md
+      - frontend/dist
+
+docker_manifests:
+  - name_template: ghcr.io/jamesread/uncomplicated-alert-receiver:{{ .Version }}
+    image_templates:
+      - ghcr.io/jamesread/uncomplicated-alert-receiver:{{ .Version }}-amd64
+      - ghcr.io/jamesread/uncomplicated-alert-receiver:{{ .Version }}-arm64
+
+  - name_template: ghcr.io/jamesread/uncomplicated-alert-receiver:latest
+    image_templates:
+      - ghcr.io/jamesread/uncomplicated-alert-receiver:{{ .Version }}-amd64
+      - ghcr.io/jamesread/uncomplicated-alert-receiver:{{ .Version }}-arm64
 
 changelog:
   sort: asc
