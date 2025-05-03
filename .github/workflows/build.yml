@@ -12,12 +12,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '.goreleaser.yaml'
-      - 'service/**'
-      - 'frontend/**'
-      - 'Makefile'
-      - '.github/workflows/build.yml'
 
 jobs:
   build:

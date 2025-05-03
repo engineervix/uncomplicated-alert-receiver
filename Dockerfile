@@ -10,6 +10,6 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY service/uar /app/uar
-COPY frontend/dist/ /app/webui
+COPY frontend/dist /app/webui
 
 ENTRYPOINT ["/app/uar"]
