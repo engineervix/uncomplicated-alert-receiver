@@ -133,6 +133,7 @@ func getSettings(w http.ResponseWriter, req *http.Request) {
 
 func findWebuiDir() string {
 	directories := []string{
+		"./webui",
 		"./frontend",
 		"../frontend/",
 	}

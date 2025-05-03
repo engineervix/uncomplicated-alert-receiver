@@ -58,5 +58,6 @@ extra:
 
 nav:
   - Welcome: index.md
+  - Install: install.md
   - User Guide: userguide.md
   - Configuration: configuration.md
