@@ -16,7 +16,7 @@ builds:
       - -s -w -X buildinfo.Version={{.Version}} -X buildinfo.GitCommit={{.Commit}} -X buildinfo.BuildDate={{.Date}}
 
 archives:
-  - builds: [uncomplicated-alert-receiver]
+  - ids: [uncomplicated-alert-receiver]
 
 dockers:
   - id: uncomplicated-alert-receiver
