@@ -13,7 +13,7 @@ import (
 )
 
 type Webhook struct {
-	Alerts  []Alert
+	Alerts []Alert
 }
 
 type Alert struct {
@@ -27,7 +27,7 @@ type Alert struct {
 
 type AlertListResponse struct {
 	LastUpdated int64
-	Alerts map[string]*Alert
+	Alerts      map[string]*Alert
 }
 
 var alertMap = make(map[string]*Alert)
@@ -95,7 +95,7 @@ func getAllAlerts(w http.ResponseWriter, req *http.Request) {
 
 	res := AlertListResponse{
 		LastUpdated: lastUpdated,
-		Alerts: alertMap,
+		Alerts:      alertMap,
 	}
 
 	w.Header().Set("Content-Type", "application/json")
@@ -128,7 +128,7 @@ func getSettings(w http.ResponseWriter, req *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(ret);
+	json.NewEncoder(w).Encode(ret)
 }
 
 func findWebuiDir() string {
