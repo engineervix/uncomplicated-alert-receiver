@@ -44,7 +44,6 @@ jobs:
         run: make -w frontend
 
       - name: Login to ghcr
-        if: github.ref_type == 'tag'
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
