@@ -5,3 +5,11 @@ UAR is distributed as a Linux container. It listens on port 8080, but like any o
 ```
 docker run -p 1337:8080 --name uar ghcr.io/jamesread/uncomplicated-alert-receiver
 ```
+
+Once you have got the container up and running you can access the web interface at `http://yourServer:1337/` (or whatever port you have chosen).
+
+## Next steps
+
+The next step is to configure your alertmanager to send alerts to UAR.
+
+* [Setup Alertmanager](setup.md)

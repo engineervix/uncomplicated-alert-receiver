@@ -59,5 +59,6 @@ extra:
 nav:
   - Welcome: index.md
   - Install: install.md
+  - Setup Alertmanager: setup.md
   - User Guide: userguide.md
   - Configuration: configuration.md
