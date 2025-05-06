@@ -1,16 +1,16 @@
 :root {
   --header-bg: #444;
   --header-fg: white;
-  --status-critical-bg: salmon;
-  --status-critical-fg: black;
-  --status-severe-bg: LightSalmon;
-  --status-severe-fg: black;
-  --status-warning-bg: moccasin;
-  --status-warning-fg: black;
-  --status-important-bg: lightgoldenrodyellow;
-  --status-important-fg: black;
-  --status-info-bg: azure;
-  --status-info-fg: black;
+  --status-sev1-bg: salmon;
+  --status-sev1-fg: black;
+  --status-sev2-bg: LightSalmon;
+  --status-sev2-fg: black;
+  --status-sev3-bg: moccasin;
+  --status-sev3-fg: black;
+  --status-sev4-bg: lightgoldenrodyellow;
+  --status-sev4-fg: black;
+  --status-sev5-bg: azure;
+  --status-sev5-fg: black;
   --crust: #dee3e7;
 }
 
@@ -23,41 +23,46 @@
 }
 
 header .critical {
-  background-color: var(--status-critical-bg);
-  color: black !important;
+  background-color: var(--status-sev1-bg);
+  color: black !sev4;
   font-weight: bold;
 }
 
 div.alert {
   padding: 1em;
   border-radius: 0.5em;
-  box-shadow: 0 0 10px rgba(1, 1, 1, 0.5);
+  box-shadow: 0 0 10px rgba(1, 1, 1, 0.3);
   word-wrap: anywhere;
 }
 
-div.alert.critical {
-  background-color: var(--status-critical-bg);
-  color: var(--status-critical-fg);
+div.alert.sev1 {
+  background-color: var(--status-sev1-bg);
+  color: var(--status-sev1-fg);
+  order: 1;
 }
 
-div.alert.severe {
-  background-color: var(--status-severe-bg);
-  color: var(--status-severe-fg);
+div.alert.sev2 {
+  background-color: var(--status-sev2-bg);
+  color: var(--status-sev2-fg);
+  order: 2;
 }
 
-div.alert.warning {
-  background-color: var(--status-warning-bg);
-  color: var(--status-warning-fg);
+div.alert.sev3 {
+  background-color: var(--status-sev3-bg);
+  color: var(--status-sev3-fg);
+  order: 3;
 }
 
-div.alert.important {
-  background-color: var(--status-important-bg);
-  color: var(--status-important-fg);
+div.alert.sev4 {
+  background-color: var(--status-sev4-bg);
+  color: var(--status-sev4-fg);
+  order: 4;
 }
 
-div.alert.info {
-  background-color: var(--status-info-bg);
-  color: var(--status-info-fg);
+div.alert.sev5 {
+  background-color: var(--status-sev5-bg);
+  color: var(--status-sev5-fg);
+  order: 5;
 }
 
 main a, main a:visited {
@@ -70,6 +75,33 @@ main a, main a:visited {
 a:focus {
   background-color: black;
   color: white;
+}
+
+span.label {
+  font-size: smaller;
+  color: white;
+  display: inline-block;
+  margin-top: 1em;
+  margin-right: .4em;
+}
+
+span.label span {
+  padding: .25em;
+}
+
+span.label span.key {
+  border-radius: .5em 0 0 .5em;
+  background-color: #444;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  font-weight: bold;
+}
+
+span.label span.val {
+  background-color: #666;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-radius: 0 .5em .5em 0;
 }
 
 @media (max-width: 600px) {

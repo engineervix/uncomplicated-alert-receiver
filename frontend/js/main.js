@@ -1,18 +1,12 @@
 'use strict'
 
-const severityWeighting = new Map([
-  ['critical', 1],
-  ['severe', 2],
-  ['warning', 3],
-  ['important', 4],
-  ['info', 5]
-])
+window.severityWeighting = new Map();
 
 export default function main () {
-  window.baseUrl = window.location.origin;
+  window.baseUrl = window.location.origin
 
-  if (window.baseUrl.includes("localhost")) {
-	  window.baseUrl = 'http://localhost:8082';
+  if (window.baseUrl.includes('localhost')) {
+    window.baseUrl = 'http://localhost:8082'
   }
 
   window.timeUntilNextUpdate = 0
@@ -24,14 +18,16 @@ export default function main () {
 
 function updateSettings () {
   window.fetch(window.baseUrl + '/settings')
-	.then(response => response.json())
-	.then(res => {
-		document.getElementById('current-version').innerHTML = 'Version: ' + res.Version
-	})
-	.catch(error => {
-		console.error('Fetch error:', error)
-		document.getElementById('current-version').innerHTML = 'Error fetching version'
-	})
+    .then(response => response.json())
+    .then(res => {
+      window.settings = res
+      window.severityWeighting = new Map(Object.entries(res.SeverityLabels))
+      document.getElementById('current-version').innerHTML = 'Version: ' + res.Version
+    })
+    .catch(error => {
+      console.error('Fetch error:', error)
+      document.getElementById('current-version').innerHTML = 'Error fetching version'
+    })
 }
 function updateProgressBar () {
   const progressBar = document.getElementById('next-update')
@@ -102,14 +98,35 @@ function renderAlert (alert) {
 
   if ('severity' in alert.Labels) {
     if (severityWeighting.has(alert.Labels.severity)) {
-      alertElement.style.order = severityWeighting.get(alert.Labels.severity)
+      alertElement.classList.add('sev' + severityWeighting.get(alert.Labels.severity))
     } else {
       alertElement.style.order = '10'
     }
-
-    alertElement.classList.add(alert.Labels.severity)
   } else {
     alertElement.style.order = '10'
+  }
+
+  if (window.settings.DrawLabels) {
+    for (const label of Object.keys(alert.Labels)) {
+      if (label === 'severity') {
+        continue
+      }
+
+      const labelElement = document.createElement('span')
+      labelElement.classList.add('label')
+
+      const keyElement = document.createElement('span')
+      keyElement.classList.add('key')
+      keyElement.textContent = label
+      labelElement.appendChild(keyElement)
+
+      const valElement = document.createElement('span')
+      valElement.classList.add('val')
+      valElement.textContent = alert.Labels[label]
+      labelElement.appendChild(valElement)
+
+      alertElement.appendChild(labelElement)
+    }
   }
 
   return alertElement
