@@ -29,6 +29,7 @@ type Settings struct {
 	Version        string
 	DrawLabels     bool
 	SeverityLabels map[string]int
+	IgnoredLabels  []string
 }
 
 func getSettings(w http.ResponseWriter, req *http.Request) {
@@ -40,6 +41,7 @@ func getSettings(w http.ResponseWriter, req *http.Request) {
 		Version:        buildinfo.Version,
 		DrawLabels:     os.Getenv("DRAW_LABELS") != "",
 		SeverityLabels: config.SeverityLabels,
+		IgnoredLabels:  config.IgnoredLabels,
 	}
 
 	log.Infof("Settings: %+v", ret)

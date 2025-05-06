@@ -7,6 +7,7 @@ import (
 
 type RuntimeConfig struct {
 	SeverityLabels map[string]int
+	IgnoredLabels []string
 }
 
 func (c *RuntimeConfig) putSeverityLabels(envvar string, defaultLabels string, level int) {
@@ -31,5 +32,17 @@ func Get() *RuntimeConfig {
 	cfg.putSeverityLabels("SEV_LABELS_4", "important", 4)
 	cfg.putSeverityLabels("SEV_LABELS_5", "info,information", 5)
 
+	cfg.IgnoredLabels = getEnvArray("IGNORED_LABELS", []string{"alertname", "instance", "job", "severity"})
+
 	return cfg
+}
+
+func getEnvArray(envvar string, def []string) []string {
+	env := os.Getenv(envvar)
+
+	if env != "" {
+		return strings.Split(env, ",")
+	}
+
+	return def
 }

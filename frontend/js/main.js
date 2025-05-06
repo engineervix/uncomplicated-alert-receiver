@@ -108,7 +108,7 @@ function renderAlert (alert) {
 
   if (window.settings.DrawLabels) {
     for (const label of Object.keys(alert.Labels)) {
-      if (label === 'severity') {
+      if (window.settings.IgnoredLabels.includes(label)) {
         continue
       }
 
