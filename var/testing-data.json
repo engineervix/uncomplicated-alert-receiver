@@ -1,41 +1,91 @@
 {
-	"alerts": [
-		{
-			"Labels": {"severity": "critical"},
-			"Annotations": {"summary": "Failed to scrape state metrics: metrics.k8s.example.lan"}
-		},
-		{
-			"Labels": {"severity": "severe"},
-			"Annotations": {"summary": "Disk space > 90% on server1.example.lan"}
-		},
-		{
-			"Labels": {"severity": "severe"},
-			"Annotations": {"summary": "Target down: server2.example.lan"}
-		},
-		{
-			"Labels": {"severity": "severe"},
-			"Annotations": {"summary": "Target down: server3.example.lan"}
-		},
-		{
-			"Labels": {"severity": "severe"},
-			"Annotations": {"summary": "Target down: server4.example.lan"}
-		},
-		{
-			"Labels": {"severity": "warning"},
-			"Annotations": {"summary": "Non-running container: docker.io/grafana/grafana:latest"}
-		},
-		{
-			"Labels": {"severity": "warning"},
-			"Annotations": {"summary": "Non-running container: docker.io/linuxserver/duckdns"}
-		},
-		{
-			"Labels": {"severity": "important"},
-			"Annotations": {"summary": "Utilization on server 9 is only 15%"}
-		},
-		{
-			"Labels": {"severity": "info"},
-			"Annotations": {"summary": "Time sync on server 1 is behind by 1337 seconds"}
-		}
-
-	]
+  "alerts": [
+    {
+      "Labels": {
+        "severity": "crit",
+		"job": "up"
+      },
+      "Annotations": {
+        "summary": "Failed to scrape state metrics: metrics.k8s.example.lan"
+      }
+    },
+    {
+      "Labels": {
+        "severity": "severe",
+		"job": "disk-space",
+		"server": "server1.example.lan"
+      },
+      "Annotations": {
+        "summary": "Disk space > 90% on server1.example.lan"
+      }
+    },
+    {
+      "Labels": {
+        "severity": "severe",
+		"job": "up",
+		"server": "server2.example.lan"
+      },
+      "Annotations": {
+        "summary": "Target down: server2.example.lan"
+      }
+    },
+    {
+      "Labels": {
+        "severity": "severe",
+		"job": "up",
+		"server": "server2.example.lan"
+      },
+      "Annotations": {
+        "summary": "Target down: server3.example.lan"
+      }
+    },
+    {
+      "Labels": {
+        "severity": "severe",
+		"job": "up",
+		"server": "server2.example.lan"
+      },
+      "Annotations": {
+        "summary": "Target down: server4.example.lan"
+      }
+    },
+    {
+      "Labels": {
+        "severity": "warning",
+		"job": "kube-state-metrics",
+		"instance": "kube-state-metrics.example.lan"
+      },
+      "Annotations": {
+        "summary": "Non-running container: docker.io/grafana/grafana:latest"
+      }
+    },
+    {
+      "Labels": {
+        "severity": "warning",
+		"job": "kube-state-metrics",
+		"instance": "kube-state-metrics.example.lan"
+      },
+      "Annotations": {
+        "summary": "Non-running container: docker.io/linuxserver/duckdns"
+      }
+    },
+    {
+      "Labels": {
+        "severity": "important",
+        "server": "server5.example.lan"
+      },
+      "Annotations": {
+        "summary": "Utilization on server9 is only 15%"
+      }
+    },
+    {
+      "Labels": {
+        "severity": "info",
+		"server": "server1.example.lan"
+      },
+      "Annotations": {
+        "summary": "Time sync on server 1 is behind by 1337 seconds"
+      }
+    }
+  ]
 }
