@@ -7,7 +7,7 @@ import (
 
 type RuntimeConfig struct {
 	SeverityLabels map[string]int
-	IgnoredLabels []string
+	IgnoredLabels  []string
 }
 
 func (c *RuntimeConfig) putSeverityLabels(envvar string, defaultLabels string, level int) {
