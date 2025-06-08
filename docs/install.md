@@ -2,6 +2,19 @@
 
 UAR is distributed as a Linux container. It listens on port 8080, but like any other container, it can run on any host port, in the example the port is 1337;
 
+## Docker Compose
+
+```yaml
+services:
+  uar:
+    container_name: uar
+    image: ghcr.io/jamesread/uncomplicated-alert-receiver:1.2.0
+    ports:
+      - "6337:8080"
+```
+
+## Docker (standalone)
+
 ```
 docker run -p 1337:8080 --name uar ghcr.io/jamesread/uncomplicated-alert-receiver
 ```
