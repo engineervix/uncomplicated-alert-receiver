@@ -5,10 +5,6 @@ window.severityWeighting = new Map();
 export default function main () {
   window.baseUrl = window.location.origin
 
-  if (window.baseUrl.includes('localhost')) {
-    window.baseUrl = 'http://localhost:8082'
-  }
-
   window.timeUntilNextUpdate = 0
 
   window.intervalTimer = setInterval(updateProgressBar, 1000)
